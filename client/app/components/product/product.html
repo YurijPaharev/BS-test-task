@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-block">
+    <button class="btn btn-primary btn-sm" ui-sref="product-list">Back</button>
+    <h4 class="card-title"><span ng-bind="$ctrl.product.title"></span></h4>
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-sm-2">
+        <img ng-src="{{$ctrl.product.image}}" alt="Card image" class="img-fluid" >
+      </div>
+      <div class="col-sm-10">
+        <div class="lead" ng-bind="$ctrl.product.title"></div>
+        <div class="text-muted m-b-2" ng-bind="$ctrl.product.description"></div>
+        <p ng-bind="$ctrl.product.price | currency"></p>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-outline-primary btn-sm" ng-click="$ctrl.editProduct($ctrl.product)">Edit product</button>
+      </div>
+    </div>
+  </div>
+</div>

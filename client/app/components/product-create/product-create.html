@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-block">
+        <button class="btn btn-primary btn-sm" ui-sref="product-list">Back</button>
+        <h4 class="card-title">Creating new product</h4>
+    </div>
+    <div class="card-block">
+        <form name="productCreate" ng-submit="productCreate.$valid && $ctrl.submit()" novalidate>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" class="form-control" name="title" ng-model="$ctrl.product.title" required>
+                <small ng-show="productCreate.title.$invalid" class="form-text pass-error">Write your product`s title</small>
+            </div>
+            <div class="form-group">
+                <label for="image">Photo</label>
+                <input type="url" class="form-control" id="image" name="image" ng-model="$ctrl.product.image" valid-data="url">
+                <small ng-show="productCreate.image.$invalid" class="form-text pass-error">Paste your image url here</small>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" name="description" ng-model="$ctrl.product.description" required></textarea>
+                <small ng-show="productCreate.description.$invalid" class="form-text pass-error">Write the description of your product</small>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input id="price" class="form-control" name="price" ng-model="$ctrl.product.price" valid-data="number" required>
+                <small ng-show="productCreate.price.$invalid" class="form-text pass-error">Set your price in a valid number</small>
+            </div>
+            <input type="submit" class="btn btn-outline-success" value="Submit product" ng-class= "{ disabled : !productCreate.$valid}" />
+        </form>
+    </div>
+</div>

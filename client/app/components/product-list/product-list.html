@@ -1,0 +1,24 @@
+<button class="btn btn-outline-primary btn-lg" ui-sref="product-create">Create new product</button>
+<div class="card" ng-repeat="product in $ctrl.products">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-sm-2">
+        <a class="card-image-left" ui-sref="product-details({productId: product.id})"><img ng-src="{{product.image}}" alt="Card image" class="img-fluid"></a>
+      </div>
+      <div class="col-sm-8">
+        <h3 class="card-title m-b-0"><a ui-sref="product-details({productId: product.id})" ng-bind="product.title"></a></h3>
+          <h3 class="product-price card-text">
+              <span class="badge badge-success" ng-bind="product.price | currency"></span>
+          </h3>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-outline-primary btn-sm" ng-click="$ctrl.editProduct(product)">Edit product</button>
+        <button type="button" class="btn btn-outline-danger btn-sm" ng-click="$ctrl.deleteProduct(product)">Delete product</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-if="!$ctrl.products.length">
+  No products to show you here
+</div>
